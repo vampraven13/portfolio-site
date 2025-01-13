@@ -15,20 +15,6 @@
             color: #333;
             background-color: #f4f4f9;
         }
-	/* Tablets (between 600px and 1024px) */
-        @media screen and (max-width: 1024px) {
-             body {
-                  font-size: 16px;
-                  margin: 10px;
-             }
-         }
-
-        /* Mobile phones (less than 600px wide) */
-        @media screen and (max-width: 600px) {
-             body {
-                  font-size: 14px;
-                  margin: 5px;
-              }
 		
         header {
             background: #333;
@@ -65,15 +51,25 @@
         }
 
         #intro {
-            font-size: 2em;
-            font-weight: bold;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            display: inline-block;
-            border-right: 3px solid black; /* Cursor effect */
-            animation: blinkCursor 0.8s infinite;
-        }
+             font-size: 2em;
+             font-weight: bold;
+             text-align: center;
+             overflow: hidden;
+             display: inline-block;
+             border-right: 3px solid black; /* Blinking cursor effect */
+             white-space: nowrap; /* Prevents wrapping on large screens */
+             max-width: 90vw; /* Prevents text from overflowing */
+}
+
+          /* Fix for small screens */
+          @media screen and (max-width: 600px) {
+               #intro {
+                    font-size: 1.5em; /* Reduce font size for better fit */
+                    white-space: normal; /* Allow text to wrap */
+                   display: block; /* Makes sure it centers properly */
+                   word-break: break-word; /* Ensures words break correctly */
+    }
+}
 
         @keyframes blinkCursor {
             50% { border-color: transparent; }
@@ -143,6 +139,8 @@
                           document.querySelector("#intro").style.borderRight = "none"; // Removes cursor
                  }
                  }
+
+document.addEventListener("DOMContentLoaded", typeWriter);
 
                  typeWriter(); // Start typing when the page loads
              });
