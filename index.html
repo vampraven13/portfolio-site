@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Amy Sullivan</title>
+    <style>
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #007BFF;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        #intro {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            border-right: 3px solid black; /* Cursor effect */
+            animation: blinkCursor 0.8s infinite;
+        }
+
+        @keyframes blinkCursor {
+            50% { border-color: transparent; }
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            background: #007BFF;
+            color: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Amy Sullivan</h1>
+        <p>Web Designer & Developer Portfolio</p>
+	<div class="container">
+             <h2 id="intro"></h2> <!-- Typewriter text appears here -->
+        </div>
+        <script>
+             document.addEventListener("DOMContentLoaded", function () {
+                 const text = "Web Developer | Designer | Problem Solver";
+                 let i = 0;
+
+                 function typeWriter() {
+                     if (i < text.length) {
+                          document.querySelector("#intro").innerHTML += text.charAt(i);
+                         i++;
+                         setTimeout(typeWriter, 100);
+                     }
+		     else {
+                          document.querySelector("#intro").style.borderRight = "none"; // Removes cursor
+                 }
+                 }
+
+                 typeWriter(); // Start typing when the page loads
+             });
+         </script>
+    </header>
+    
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I am Amy Sullivan. I hold a Master of Education (M.Ed.) degree, but my passion lies in web development and coding. I am a web designer and developer dedicated to creating clean, functional, and visually appealing websites. With a strong background in coding and a keen eye for design, I aim to bring ideas to life on the web.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>HTML5</li>
+                <li>Windows Operating Systems</li>
+                <li>Google Suite</li>
+                <li>Problem Solving</li>
+                <li>Creative Thinking</li>
+                <li>Attention to Detail</li>
+		<li>Teamwork and Professionalism</li>
+		<li>Adaptability</>
+            </ul>
+        </section>
+
+        <section id="resume">
+            <h2>Resume</h2>
+            <p>View and download my resume: <a href="resume.pdf" target="_blank">Download Resume</a></p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you'd like to get in touch, feel free to reach out via email or phone:</p>
+            <ul>
+                <li>Email: <a href="mailto:amymsullivan17@gmail.com">amymsullivan17@gmail.com</a></li>
+                <li>Phone: (830) 613-6259</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 [Amy Sullivan]. All Rights Reserved. | <a href="#">Back to top</a></p>
+    </footer>
+</body>
+</html>
