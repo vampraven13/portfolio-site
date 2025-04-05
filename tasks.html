@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Task List</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      padding: 40px;
+      position: relative;
+    }
+    .section {
+      background-color: rgba(30, 30, 30, 0.6);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .task-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .task-column {
+      background-color: rgba(50, 50, 50, 0.5);
+      border-radius: 10px;
+      padding: 15px;
+    }
+    .task-column h2 {
+      margin-top: 0;
+    }
+    .task-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .task-item input[type="checkbox"] {
+      margin-right: 10px;
+      transform: scale(1.2);
+    }
+    .task-item input[type="text"] {
+      flex: 1;
+      padding: 6px;
+      border-radius: 5px;
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 12pt;
+      background-color: rgba(80, 80, 80, 0.4);
+      color: #ffffff;
+    }
+    h2 {
+      color: #b3d9ff;
+      font-size: 16pt;
+      margin-bottom: 10px;
+    }
+    a.back {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #a4deaa;
+      font-size: 14pt;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <div class="task-list">
+      <div class="task-column">
+        <h2>Priority Tasks – Work</h2>
+        <div class="task-item"><input type="checkbox"><input type="text" id="pw1"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="pw2"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="pw3"></div>
+      </div>
+      <div class="task-column">
+        <h2>Priority Tasks – Personal</h2>
+        <div class="task-item"><input type="checkbox"><input type="text" id="pp1"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="pp2"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="pp3"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="task-list">
+      <div class="task-column">
+        <h2>Additional Tasks – Work</h2>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw1"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw2"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw3"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw4"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw5"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw6"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw7"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw8"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw9"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw10"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw11"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw12"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw13"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw14"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="aw15"></div>
+      </div>
+      <div class="task-column">
+        <h2>Additional Tasks – Personal</h2>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap1"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap2"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap3"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap4"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap5"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap6"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap7"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap8"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap9"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap10"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap11"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap12"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap13"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap14"></div>
+        <div class="task-item"><input type="checkbox"><input type="text" id="ap15"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center">
+    <a class="back" href="index.html">← Back to Dashboard</a>
+  </div>
+
+  <script>
+    const ids = [
+      "pw1", "pw2", "pw3",
+      "pp1", "pp2", "pp3",
+      ...Array.from({ length: 15 }, (_, i) => `aw${i + 1}`),
+      ...Array.from({ length: 15 }, (_, i) => `ap${i + 1}`)
+    ];
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      el.value = localStorage.getItem(id) || "";
+      el.addEventListener("input", () => {
+        localStorage.setItem(id, el.value);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meal Planner</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #211f1d;
+      padding: 40px;
+      color: #333;
+      background: linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.15)), url('food.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+    h1 {
+      text-align: center;
+      color: #211f1d;
+      margin-bottom: 40px;
+    }
+    .section {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h2 {
+      color: #211f1d;
+      font-size: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    .meal-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .meal-item input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 14pt;
+      border: none;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #211f1d;
+      font-family: 'Georgia', serif;
+    }
+    .meal-item input[type="text"]::placeholder {
+      color: #211f1d;
+    }
+    .meal-item input[type="text"]:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Weekly Meal Planner</h1>
+
+  <div class="section">
+    <h2>Breakfast Options</h2>
+    <div class="meal-item"><input type="text" id="breakfast1" placeholder="Breakfast Option 1" /></div>
+    <div class="meal-item"><input type="text" id="breakfast2" placeholder="Breakfast Option 2" /></div>
+  </div>
+
+  <div class="section">
+    <h2>Lunch Options</h2>
+    <div class="meal-item"><input type="text" id="lunch1" placeholder="Lunch Option 1" /></div>
+    <div class="meal-item"><input type="text" id="lunch2" placeholder="Lunch Option 2" /></div>
+  </div>
+
+  <div class="section">
+    <h2>Protein Snacks</h2>
+    <div class="meal-item"><input type="text" id="snack1" placeholder="Protein Snack 1" /></div>
+    <div class="meal-item"><input type="text" id="snack2" placeholder="Protein Snack 2" /></div>
+    <div class="meal-item"><input type="text" id="snack3" placeholder="Protein Snack 3" /></div>
+  </div>
+
+  <div class="section">
+    <h2>Dinner Options</h2>
+    <div class="meal-item"><input type="text" id="dinner1" placeholder="Dinner Option 1" /></div>
+    <div class="meal-item"><input type="text" id="dinner2" placeholder="Dinner Option 2" /></div>
+    <div class="meal-item"><input type="text" id="dinner3" placeholder="Dinner Option 3" /></div>
+    <div class="meal-item"><input type="text" id="dinner4" placeholder="Dinner Option 4" /></div>
+    <div class="meal-item"><input type="text" id="dinner5" placeholder="Dinner Option 5" /></div>
+    <div class="meal-item"><input type="text" id="dinner6" placeholder="Dinner Option 6" /></div>
+    <div class="meal-item"><input type="text" id="dinner7" placeholder="Dinner Option 7" /></div>
+  </div>
+
+  <div class="section">
+    <h2>Other Meal Ideas</h2>
+    <div class="meal-item"><input type="text" id="other1" placeholder="Other Idea 1" /></div>
+    <div class="meal-item"><input type="text" id="other2" placeholder="Other Idea 2" /></div>
+    <div class="meal-item"><input type="text" id="other3" placeholder="Other Idea 3" /></div>
+    <div class="meal-item"><input type="text" id="other4" placeholder="Other Idea 4" /></div>
+  </div>
+
+  <script>
+    const ids = [
+      'breakfast1', 'breakfast2',
+      'lunch1', 'lunch2',
+      'snack1', 'snack2', 'snack3',
+      'dinner1', 'dinner2', 'dinner3', 'dinner4', 'dinner5', 'dinner6', 'dinner7',
+      'other1', 'other2', 'other3', 'other4'
+    ];
+
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      el.value = localStorage.getItem(id) || '';
+      el.addEventListener('input', () => {
+        localStorage.setItem(id, el.value);
+      });
+    });
+  </script>
+</body>
+</html>
